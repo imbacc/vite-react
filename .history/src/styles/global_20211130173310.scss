@@ -1,9 +1,20 @@
-#app,
-html,
-body {
-	padding: 0;
-	margin: 0;
-	@extend .h100b;
+// #app {
+// 	padding: 0;
+// 	margin: 0;
+// 	@extend .h100b;
+// }
+
+// html {
+// 	@extend #app;
+// }
+
+// body {
+// 	@extend #app;
+// }
+
+.ff_fw400 {
+	font-family: PingFang SC, Arial, Microsoft YaHei, sans-serif;
+	font-weight: 400;
 }
 
 // 全局CSS
@@ -11,11 +22,6 @@ body {
 	color: #333;
 	background-color: #f4f5f7;
 	@extend .ff_fw400;
-}
-
-.ff_fw400 {
-	font-family: PingFang SC, Arial, Microsoft YaHei, sans-serif;
-	font-weight: 400;
 }
 
 .f24_fw400 {

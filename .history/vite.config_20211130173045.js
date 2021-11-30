@@ -84,7 +84,7 @@ const config = {
 	// 要将一些共享的全局变量传递给所有的Less样式
 	css: {
 		preprocessorOptions: {
-			sass: {
+			scss: {
 				additionalData: `@import "${resolve(__dirname, 'styles/global.scss')}"`,
 				javascriptEnabled: true
 			}

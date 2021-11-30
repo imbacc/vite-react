@@ -1,0 +1,21 @@
+{
+	"name": "vite2-react",
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "cross-env NODE_ENV=development vite --host",
+		"force": "cross-env NODE_ENV=development vite --host --force",
+		"debug": "cross-env NODE_ENV=development vite --host --debug",
+		"build": " cross-env NODE_ENV=production vite build",
+		"serve": "cross-env NODE_ENV=production vite preview --host",
+		"test:gzip": "npx http-server dist --cors --gzip -c-1"
+	},
+	"dependencies": {
+		"react": "^17.0.0",
+		"react-dom": "^17.0.0"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "^1.0.0",
+		"sass": "^1.44.0",
+		"vite": "^2.6.4"
+	}
+}

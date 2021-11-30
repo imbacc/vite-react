@@ -1,10 +1,16 @@
-#app,
-html,
-body {
-	padding: 0;
-	margin: 0;
-	@extend .h100b;
-}
+// #app {
+// 	padding: 0;
+// 	margin: 0;
+// 	@extend .h100b;
+// }
+
+// html {
+// 	@extend #app;
+// }
+
+// body {
+// 	@extend #app;
+// }
 
 // 全局CSS
 .index_view {

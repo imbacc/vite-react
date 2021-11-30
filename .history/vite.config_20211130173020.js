@@ -21,7 +21,7 @@ const config = {
 	server: {
 		// minify: 'esbuild',
 		// open: '/',
-		hmr: { overlay: false }
+		hmr: { overlay: false },
 	},
 
 	//编译
@@ -49,17 +49,17 @@ const config = {
 					if (id.includes('node_modules')) {
 						return id.toString().split('node_modules/')[1].split('/')[0].toString()
 					}
-				}
+				},
 				// globals: {
 				// 	vue: 'Vue'
 				// }
-			}
-		}
+			},
+		},
 	},
 
 	//部门优化选项
 	optimizeDeps: {
-		entries: ['react']
+		entries: ['react'],
 		// include: [],
 		// exclude: ['screenfull', 'nprogress']
 	},
@@ -74,8 +74,8 @@ const config = {
 			'@components': resolve(__dirname, 'src/components'),
 			'@views': resolve(__dirname, 'src/views'),
 			'@common': resolve(__dirname, 'src/common'),
-			'@styles': resolve(__dirname, 'src/styles')
-		}
+			'@styles': resolve(__dirname, 'src/styles'),
+		},
 	},
 
 	// 插件
@@ -84,12 +84,12 @@ const config = {
 	// 要将一些共享的全局变量传递给所有的Less样式
 	css: {
 		preprocessorOptions: {
-			sass: {
+			scss: {
 				additionalData: `@import "${resolve(__dirname, 'styles/global.scss')}"`,
-				javascriptEnabled: true
-			}
-		}
-	}
+				javascriptEnabled: true,
+			},
+		},
+	},
 }
 
 export default ({ command, mode }) => {

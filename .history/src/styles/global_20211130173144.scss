@@ -1,9 +1,15 @@
-#app,
-html,
-body {
+#app {
 	padding: 0;
 	margin: 0;
 	@extend .h100b;
+}
+
+html {
+	@extend #app;
+}
+
+body {
+	@extend #app;
 }
 
 // 全局CSS

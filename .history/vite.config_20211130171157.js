@@ -1,5 +1,4 @@
 import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
 
 // plugin
 import { viteMockServe } from 'vite-plugin-mock' // mock
@@ -10,6 +9,7 @@ import windicssPlugin from 'vite-plugin-windicss' // windicss
 import compressionPlugin from 'vite-plugin-compression' // 使用gzip或brotli来压缩资源
 
 import envPlugin from './vite-plugin/vite-plugin-env.js' // env 环境
+import componentsPlugin from './vite-plugin/vite-plugin-components.js' // Vite 的按需组件自动导入
 import routerPagePlugin from './vite-plugin/vite-plugin-routerPage.js' // 自动导入路由 需要可以用
 import htmlInjectPlugin from './vite-plugin/vite-plugin-htmlInject.js' //html inject
 
@@ -21,7 +21,7 @@ const config = {
 	server: {
 		// minify: 'esbuild',
 		// open: '/',
-		hmr: { overlay: false }
+		hmr: { overlay: false },
 	},
 
 	//编译
@@ -49,17 +49,17 @@ const config = {
 					if (id.includes('node_modules')) {
 						return id.toString().split('node_modules/')[1].split('/')[0].toString()
 					}
-				}
+				},
 				// globals: {
 				// 	vue: 'Vue'
 				// }
-			}
-		}
+			},
+		},
 	},
 
 	//部门优化选项
 	optimizeDeps: {
-		entries: ['react']
+		entries: ['react'],
 		// include: [],
 		// exclude: ['screenfull', 'nprogress']
 	},
@@ -74,22 +74,21 @@ const config = {
 			'@components': resolve(__dirname, 'src/components'),
 			'@views': resolve(__dirname, 'src/views'),
 			'@common': resolve(__dirname, 'src/common'),
-			'@styles': resolve(__dirname, 'src/styles')
-		}
+			'@styles': resolve(__dirname, 'src/styles'),
+		},
 	},
 
 	// 插件
-	plugins: [react(), envPlugin(), IconsPlugin(), routerPagePlugin(), windicssPlugin(), htmlInjectPlugin()],
+	plugins: [react(), envPlugin(), IconsPlugin(), componentsPlugin(), routerPagePlugin(), windicssPlugin(), htmlInjectPlugin()],
 
 	// 要将一些共享的全局变量传递给所有的Less样式
 	css: {
 		preprocessorOptions: {
-			sass: {
-				additionalData: `@import "${resolve(__dirname, 'styles/global.scss')}"`,
-				javascriptEnabled: true
-			}
-		}
-	}
+			scss: {
+				additionalData: `@use "@styles/global.scss" as *;`,
+			},
+		},
+	},
 }
 
 export default ({ command, mode }) => {

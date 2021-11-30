@@ -1,5 +1,4 @@
 import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
 
 // plugin
 import { viteMockServe } from 'vite-plugin-mock' // mock
@@ -79,14 +78,13 @@ const config = {
 	},
 
 	// 插件
-	plugins: [react(), envPlugin(), IconsPlugin(), routerPagePlugin(), windicssPlugin(), htmlInjectPlugin()],
+	plugins: [react(), envPlugin(), IconsPlugin(), componentsPlugin(), routerPagePlugin(), windicssPlugin(), htmlInjectPlugin()],
 
 	// 要将一些共享的全局变量传递给所有的Less样式
 	css: {
 		preprocessorOptions: {
-			sass: {
-				additionalData: `@import "${resolve(__dirname, 'styles/global.scss')}"`,
-				javascriptEnabled: true
+			scss: {
+				additionalData: `@use "@styles/global.scss" as *;`
 			}
 		}
 	}
