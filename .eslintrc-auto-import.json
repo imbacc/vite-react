@@ -57,6 +57,11 @@
     "useTransition": true,
     "useUserStore": true,
     "onMounted": true,
-    "onUnmounted": true
+    "onUnmounted": true,
+    "emitEmitEvent": true,
+    "emitter": true,
+    "offEmitEvent": true,
+    "onEmitEvent": true,
+    "useHasState": true
   }
 }
